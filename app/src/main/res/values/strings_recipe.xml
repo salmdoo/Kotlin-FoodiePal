@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="recipe_name">
+        <item>Spaghetti Bolognese</item>
+        <item>Chicken Stir-Fry</item>
+        <item>Caprese Salad</item>
+        <item>Vegetarian Quinoa Bowl</item>
+    </array>
+    <array name="recipe_instruction">
+        <item>
+            In a large skillet, brown the ground beef over medium heat. Drain excess fat.
+            \n Add chopped onions and minced garlic, sauté until softened.
+            \n Stir in crushed tomatoes, tomato paste, oregano, basil, salt, and pepper. Simmer for
+            20-30 minutes.
+            \n Meanwhile, cook spaghetti noodles according to package instructions.
+            \n Serve the Bolognese sauce over cooked spaghetti and garnish with grated Parmesan
+            cheese.
+        </item>
+        <item>
+            In a wok or large skillet, heat sesame oil over medium-high heat.
+            \n Add sliced chicken and cook until browned and cooked through.
+            \n Add garlic and ginger, stir-fry for 1-2 minutes.
+            \n Add broccoli, bell pepper, and carrot. Cook until vegetables are tender-crisp.
+            \n In a small bowl, mix soy sauce and hoisin sauce. Pour over the chicken and
+            vegetables, toss to coat.
+            \n Serve the stir-fry over cooked rice.
+        </item>
+        <item>
+            Arrange tomato and mozzarella slices on a serving platter.
+            \n Tuck fresh basil leaves between the tomato and mozzarella slices.
+            \n Drizzle extra virgin olive oil and balsamic glaze over the salad.
+            \n Sprinkle with salt and pepper to taste.
+            \n Serve immediately as a refreshing salad or appetizer.
+        </item>
+        <item>
+            In a saucepan, combine quinoa and vegetable broth. Bring to a boil, then reduce heat,
+            cover, and simmer until quinoa is cooked and liquid is absorbed.
+            \n In a bowl, assemble quinoa, black beans, corn, avocado, and cherry tomatoes.
+            \n Drizzle with lime juice and sprinkle with chopped cilantro.
+            \n Season with salt and pepper to taste.
+            \n Toss the ingredients together before serving. Enjoy your nutritious quinoa bowl!
+        </item>
+    </array>
+    <array name="recipe_ingredient">
+        <item>
+            1 lb ground beef
+            \n 1 onion, finely chopped
+            \n 2 cloves garlic, minced
+            \n 1 can (28 oz) crushed tomatoes
+        </item>
+        <item>
+            1 lb boneless, skinless chicken breasts, sliced
+            \n 2 cups broccoli florets
+            \n 1 bell pepper, thinly sliced
+            \n 1 carrot, julienned
+            \n 3 tablespoons soy sauce
+        </item>
+        <item>
+            4 large tomatoes, sliced
+            \n 1 lb fresh mozzarella cheese, sliced
+            \n Fresh basil leaves
+            \n Extra virgin olive oil
+            \n Balsamic glaze
+        </item>
+        <item>
+            1 cup quinoa, rinsed
+            \n 2 cups vegetable broth
+            \n 1 can (15 oz) black beans, drained and rinsed
+            \n 1 cup corn kernels (fresh or frozen)
+            \n 1 avocado, sliced
+            \n 1 cup cherry tomatoes, halved
+        </item>
+    </array>
+    <array name="recipe_star">
+        <item>2</item>
+        <item>5</item>
+        <item>3</item>
+        <item>4</item>
+    </array>
+    <array name="time_cooking">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>10</item>
+    </array>
+</resources>
