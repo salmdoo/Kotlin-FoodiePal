@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".mealPlan.MealPlanFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Fragment meal" />
+        android:id="@+id/mealPlanRecyclerView"/>
 
 </FrameLayout>

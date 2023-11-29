@@ -24,7 +24,7 @@ class ContactFragment : Fragment() {
         val recycleView = binding.contactRecyclerView
 
         recycleView.layoutManager = LinearLayoutManager(requireContext())
-        recycleView.adapter = ContactAdapter(requireContext(), contacts)
+        ContactAdapter(requireContext(), contacts).also { recycleView.adapter = it }
 
         // Inflate the layout for this fragment
         return binding.root

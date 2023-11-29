@@ -22,6 +22,8 @@ class BlogFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        blogResource.add("https://pinchofyum.com/sheet-pan-jambalaya")
+        blogResource.add("https://pinchofyum.com/recipes/healthy-choices")
         val binding = FragmentBlogBinding.inflate(inflater, container, false)
 
         val recyclerView = binding.blogRecycleView
