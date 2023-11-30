@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.example.foodiepal.aboutMe.AboutMeFragment
 import com.example.foodiepal.blog.BlogFragment
 import com.example.foodiepal.contact.ContactFragment
 import com.example.foodiepal.databinding.ActivityMainBinding
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         binding.foodPlanBtn.setOnClickListener { clickMealPlan() }
         binding.blogBtn.setOnClickListener { clickBlog() }
         binding.contactBtn.setOnClickListener { clickContact() }
+        binding.aboutMeBtn.setOnClickListener { clickAboutMe() }
         setContentView(binding.root)
 
         fragmentManager = supportFragmentManager //Get the fragment transaction of the current activity
@@ -53,6 +55,12 @@ class MainActivity : AppCompatActivity() {
     fun clickContact(){
         fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout, ContactFragment())
+        fragmentTransaction.commit()
+    }
+
+    fun clickAboutMe(){
+        fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frameLayout, AboutMeFragment())
         fragmentTransaction.commit()
     }
 }
