@@ -3,26 +3,24 @@ package com.example.foodiepal.recipe
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.RatingBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.foodiepal.R
 import com.example.foodiepal.databinding.RecipeItemBinding
+import java.lang.Float.parseFloat
 
 class RecipeAdapter(val context: Context, val resources: RecipeResources) : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
     inner class RecipeViewHolder(val binding: RecipeItemBinding): ViewHolder(binding.root){
-        fun bind(recipe: RecipeData, recipeDetails: RecipeDetails) {
+        fun bind(recipe: RecipeDetails) {
             binding.recipeName.text = recipe.name
             binding.recipeImage.setImageResource(recipe.image)
-            binding.recipeStar.text = "${recipe.stars} stars"
+            var ratingRecipe = binding.recipeStar
+            ratingRecipe.rating = parseFloat(recipe.star.toString())
             binding.recipeTimeCooking.text = "${recipe.cookingTime} mins"
-
-            binding.recipeItemClickable.setOnClickListener{
-                val detailsFragment = RecipeDetailsFragment.newInstance(recipeDetails)
-                (context as AppCompatActivity).supportFragmentManager.beginTransaction()
-                    .replace(R.id.frameLayout, detailsFragment)
-                    .commit()
-            }
+            binding.recipeInstruction.text = recipe.instruction
+            binding.recipeIngredient.text = recipe.ingredient
         }
     }
 
@@ -39,8 +37,7 @@ class RecipeAdapter(val context: Context, val resources: RecipeResources) : Recy
         val star = resources.stars[position]
         val timeCooking = resources.cookingTimes[position]
 
-        val recipe = RecipeData(name, image, star, timeCooking)
-        val  recipeDetails = RecipeDetails(
+        val  recipe = RecipeDetails(
             name,
             image,
             star,
@@ -48,6 +45,6 @@ class RecipeAdapter(val context: Context, val resources: RecipeResources) : Recy
             resources.ingredients[position],
             resources.instructions[position])
 
-        holder.bind(recipe, recipeDetails)
+        holder.bind(recipe)
     }
 }

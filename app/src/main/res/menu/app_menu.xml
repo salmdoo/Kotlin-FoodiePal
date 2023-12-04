@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Recipe" android:id="@+id/recipeMenu" android:icon="@drawable/recipe_icon"/>
+    <item android:title="Meal Planner" android:id="@+id/mealPlanMenu" android:icon="@drawable/meal_plan_icon"/>
+    <item android:title="Blog" android:id="@+id/blogMenu" android:icon="@drawable/blog_icon"/>
+</menu>

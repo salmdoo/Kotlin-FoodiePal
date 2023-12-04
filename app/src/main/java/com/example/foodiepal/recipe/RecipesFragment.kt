@@ -46,7 +46,7 @@ class RecipesFragment : Fragment() {
         getResource()
         binding = FragmentRecipesBinding.inflate(inflater, container, false)
         val recipeScrollview = binding.recipeRecycleView
-        recipeScrollview.layoutManager = GridLayoutManager(requireContext(), 2)
+        recipeScrollview.layoutManager = GridLayoutManager(requireContext(), 1)
         recipeAdapter = RecipeAdapter(requireContext(), recipeResources ).also { recipeScrollview.adapter = it }
 
         binding.addRecipePopupBtn.setOnClickListener {

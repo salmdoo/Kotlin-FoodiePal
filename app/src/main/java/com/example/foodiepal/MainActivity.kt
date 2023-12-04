@@ -2,65 +2,59 @@ package com.example.foodiepal
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.example.foodiepal.aboutMe.AboutMeFragment
-import com.example.foodiepal.blog.BlogFragment
-import com.example.foodiepal.contact.ContactFragment
 import com.example.foodiepal.databinding.ActivityMainBinding
-import com.example.foodiepal.mealPlan.MealPlanFragment
-import com.example.foodiepal.recipe.RecipesFragment
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var fragmentManager: FragmentManager
-    private lateinit var  fragmentTransaction: FragmentTransaction
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        binding.recipeBtn.setOnClickListener { clickRecipe() }
-        binding.foodPlanBtn.setOnClickListener { clickMealPlan() }
-        binding.blogBtn.setOnClickListener { clickBlog() }
-        binding.contactBtn.setOnClickListener { clickContact() }
-        binding.aboutMeBtn.setOnClickListener { clickAboutMe() }
         setContentView(binding.root)
 
-        fragmentManager = supportFragmentManager //Get the fragment transaction of the current activity
-        fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.frameLayout, RecipesFragment())
-        fragmentTransaction.commit()
+        binding.appTabLayout.tabGravity = TabLayout.GRAVITY_FILL
+        MainAdapter(supportFragmentManager, lifecycle).also { binding.appViewPager.adapter = it }
+        TabLayoutMediator(binding.appTabLayout, binding.appViewPager) { tab, position ->
+            when (position){
+                0 -> {
+                    tab.text = "Recipe"
+                    tab.setIcon(R.drawable.recipe_icon)
+                }
+                1 -> {
+                    tab.text = "Meal planner"
+                    tab.setIcon(R.drawable.meal_plan_icon)
+                }
+                2 -> {
+                    tab.text = "Blog"
+                    tab.setIcon(R.drawable.blog_icon)
+                }
+                3 -> {
+                    tab.text = "Contact"
+                    tab.setIcon(R.drawable.contact_icon)
+                }
+                4 -> {
+                    tab.text = "About me"
+                    tab.setIcon(R.drawable.about_me_icon)
+                }
+            }
+        }.attach()
+
+        binding.bottomNavigationMenu.setOnNavigationItemReselectedListener() {
+            when(it.itemId) {
+                R.id.recipeMenu -> binding.appViewPager.currentItem = 0
+                R.id.mealPlanMenu -> binding.appViewPager.currentItem = 1
+                R.id.blogMenu -> binding.appViewPager.currentItem = 2
+                else -> binding.appViewPager.currentItem = 0
+            }
+        }
+
 
     }
-    fun clickRecipe(){
-        fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout, RecipesFragment())
-        fragmentTransaction.commit()
-    }
 
-    fun clickMealPlan(){
-        fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout, MealPlanFragment())
-        fragmentTransaction.commit()
-    }
-
-    fun clickBlog(){
-        fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout, BlogFragment())
-        fragmentTransaction.commit()
-    }
-
-    fun clickContact(){
-        fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout, ContactFragment())
-        fragmentTransaction.commit()
-    }
-
-    fun clickAboutMe(){
-        fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout, AboutMeFragment())
-        fragmentTransaction.commit()
-    }
 }
