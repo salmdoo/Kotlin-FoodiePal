@@ -66,7 +66,9 @@ class RecipesFragment : Fragment() {
             val name = popupView.recipeName.text.toString()
             val ingredient = popupView.recipeIngredient.text.toString()
             val instruction = popupView.recipeInstruction.text.toString()
-            recipeResources.add(name, R.drawable.meals_default, 5, 10, ingredient, instruction)
+            val rate =  popupView.recipeRate.text.toString().toInt()
+            val timeCooking = popupView.recipeTimeCooking.text.toString().toInt()
+            recipeResources.add(name, R.drawable.meals_default, rate, timeCooking, ingredient, instruction)
             recipeAdapter.notifyDataSetChanged()
             popupWindow.dismiss()
         }

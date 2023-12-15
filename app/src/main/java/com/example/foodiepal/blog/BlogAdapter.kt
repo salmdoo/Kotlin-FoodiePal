@@ -10,6 +10,7 @@ class BlogAdapter(val blogs: MutableList<String>): RecyclerView.Adapter<BlogAdap
     inner class BlogViewHolder(val binding: BlogItemBinding): ViewHolder(binding.root){
         fun bind(blog: String) {
             binding.blogName.text = blog
+            binding.blogWebView.loadUrl(blog)
         }
     }
 

@@ -27,15 +27,31 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:hint="Recipe ingredient" />
+        android:hint="Ingredient" />
 
     <EditText
         android:id="@+id/recipeInstruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
-        android:hint="Recipe instruction" />
+        android:inputType="textMultiLine"
+        android:hint="Instruction" />
+
+    <EditText
+        android:id="@+id/recipeRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Rate" />
+
+    <EditText
+        android:id="@+id/recipeTimeCooking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Time cooking (mins)" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,7 +63,8 @@
             android:id="@+id/cancelBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="cancel"/>
+            android:layout_marginRight="10dp"
+            android:text="Cancel"/>
         <Button
             android:id="@+id/addRecipeBtn"
             android:layout_width="wrap_content"

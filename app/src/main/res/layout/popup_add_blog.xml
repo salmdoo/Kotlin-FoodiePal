@@ -21,10 +21,22 @@
         android:inputType="text"
         android:hint="Blog URL" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center|top">
+    <Button
+        android:id="@+id/cancelBlogBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="Cancel"/>
     <Button
         android:id="@+id/addBlogBtn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
-        android:layout_marginTop="20dp"/>
+        android:text="Add"/>
+    </LinearLayout>
 </LinearLayout>

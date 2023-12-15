@@ -49,6 +49,9 @@ class BlogFragment : Fragment() {
             adapter.notifyDataSetChanged()
             popupWindow.dismiss()
         }
+        popupView.cancelBlogBtn.setOnClickListener {
+            popupWindow.dismiss()
+        }
 
         popupWindow.showAtLocation(popupView.root, Gravity.CENTER, 0, 0)
     }

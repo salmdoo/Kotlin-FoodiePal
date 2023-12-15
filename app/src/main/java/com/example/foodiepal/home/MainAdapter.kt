@@ -1,4 +1,4 @@
-package com.example.foodiepal
+package com.example.foodiepal.home
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
