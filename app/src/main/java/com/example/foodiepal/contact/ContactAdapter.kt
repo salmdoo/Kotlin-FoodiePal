@@ -6,6 +6,7 @@ import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodiepal.databinding.ContactItemBinding
 
@@ -40,10 +41,8 @@ class ContactAdapter(private val context: Context, val contacts: MutableList<Con
         context.startActivity(i)
     }
     fun sendEmail(email: String) {
-        Log.d("email", email)
         val intent = Intent(Intent.ACTION_SENDTO).apply {
-            data = Uri.parse("mailto:")
-            putExtra(Intent.EXTRA_EMAIL, email)
+            data = Uri.parse("mailto:$email")
         }
         context.startActivity(intent)
     }

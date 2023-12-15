@@ -13,21 +13,13 @@ import android.widget.PopupWindow
 import com.example.foodiepal.R
 import com.example.foodiepal.databinding.FragmentAboutMeBinding
 import com.example.foodiepal.databinding.PopupAddAboutmeBinding
+import com.example.foodiepal.databinding.PopupAddRecipeBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AboutMeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AboutMeFragment : Fragment() {
     var culinaryJourney: String = ""
     var favoriteRecipe: String = ""
     var foodPhilosophy: String = ""
+    private lateinit var binding: FragmentAboutMeBinding
 
     fun loadData(){
         favoriteRecipe = "Signature Dish:\n Develop your signature dish that reflects your personal style and preferences. It can become your go-to recipe for special occasions."
@@ -40,7 +32,7 @@ class AboutMeFragment : Fragment() {
     ): View? {
         loadData()
 
-        val binding = FragmentAboutMeBinding.inflate(inflater, container, false)
+        binding = FragmentAboutMeBinding.inflate(inflater, container, false)
         binding.culinaryJourney.text = culinaryJourney
         binding.favoriteRecipes.text = favoriteRecipe
         binding.foodPhilosophy.text = foodPhilosophy
@@ -51,7 +43,9 @@ class AboutMeFragment : Fragment() {
 
     fun addInfo(inflater: LayoutInflater, container: ViewGroup?){
         val popupView = PopupAddAboutmeBinding.inflate(inflater, container, false)
-        val popupWindow = PopupWindow(popupView.root, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, false)
+        val popupWindow = PopupWindow(popupView.root, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, true)
+
+
         popupWindow.setBackgroundDrawable(ColorDrawable(Color.WHITE))
 
         popupView.addAboutMeBtn.setOnClickListener {
@@ -62,6 +56,11 @@ class AboutMeFragment : Fragment() {
             culinaryJourney += "\n $culinaryJourneyPopup"
             favoriteRecipe += "\n $favoriteRecipePopup"
             foodPhilosophy += "\n $foodPhilosophyPopup"
+
+            binding.culinaryJourney.text = culinaryJourney
+            binding.favoriteRecipes.text = favoriteRecipe
+            binding.foodPhilosophy.text = foodPhilosophy
+
             popupWindow.dismiss()
         }
 

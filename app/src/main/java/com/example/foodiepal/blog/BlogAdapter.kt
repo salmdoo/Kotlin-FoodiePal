@@ -1,5 +1,7 @@
 package com.example.foodiepal.blog
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +11,7 @@ import com.example.foodiepal.databinding.BlogItemBinding
 class BlogAdapter(val blogs: MutableList<String>): RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
     inner class BlogViewHolder(val binding: BlogItemBinding): ViewHolder(binding.root){
         fun bind(blog: String) {
-            binding.blogName.text = blog
+            binding.blogName.text = "Blog URL: $blog"
             binding.blogWebView.loadUrl(blog)
         }
     }
